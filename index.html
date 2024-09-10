@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="filter">
+        <form class="row">
+            <div>
+                <select id="countryFilter" class="dropdown" onchange="filterHospitals()">
+                    <option value="All">Select Country</option>
+                    <option value="USA">USA</option>
+                    <option value="Netherland">Netherland</option>
+                </select>
+            </div>
+            <!-- brand -->
+            <div>
+                <select id="brandFilter" class="dropdown" onchange="filterHospitals()">
+                    <option value="All">Select Brand</option>
+                    <option value="Alty">Alty</option>
+                    <option value="CMC Medical Centres">CMC Medical Centres</option>
+                    <option value="Columbia Asia">Columbia Asia</option>
+                    <option value="Beacon">Beacon</option>
+                    <option value="CVS">CVS</option>
+                    <option value="Picasso">Picasso</option>
+                    <option value="NHH">NHH</option>
+                    <option value="TAGS">TAGS</option>
+                    <option value="RS Premier Hospitals">RS Premier Hospitals</option>
+                </select>
+            </div>
+            <div>
+                <select id="regionFilter" class="dropdown" onchange="filterHospitals()">
+                    <option value="All">Select Region</option>
+                    <option value="Kuala Lumpur & Selangor">Kuala Lumpur & Selangor</option>
+                    <option value="Perak">Perak</option>
+                    <option value="Seremban">Seremban</option>
+                    <option value="Johor">Johor</option>
+                    <option value="Sarawak">Sarawak</option>
+                    <option value="Penang">Penang</option>
+                    <option value="Melaka">Melaka</option>
+                    <option value="North Sumatera">North Sumatera</option>
+                    <option value="South Tangerang">South Tangerang</option>
+                    <option value="Jakarta">Jakarta</option>
+                    <option value="Central Java">Central Java</option>
+                    <option value="East Java">East Java</option>
+                    <option value="Thuan An">Thuan An</option>
+                </select>
+            </div>
+            <div>
+                <select id="hospitalFilter" class="dropdown" onchange="filterHospitals()">
+                    <option value="All">Select Hospital</option>
+                    <option value="Alty Orthopaedic Hospital">Alty Orthopaedic Hospital</option>
+                    <option value="Alty Physio">Alty Physio</option>
+                    <option value="Ara Damansara Medical Centre">Ara Damansara Medical Centre</option>
+                    <option value="Bukit Tinggi Medical Centre">Bukit Tinggi Medical Centre</option>
+                    <option value="Subang Jaya Medical Centre">Subang Jaya Medical Centre</option>
+                    <option value="ParkCity Medical Centre">ParkCity Medical Centre</option>
+                    <option value="Columbia Asia Hospital - Bukit Jalil">Columbia Asia Hospital - Bukit Jalil</option>
+                    <option value="Columbia Asia Hospital - Bukit Rimau">Columbia Asia Hospital - Bukit Rimau</option>
+                    <option value="Columbia Asia Hospital – Cheras">Columbia Asia Hospital – Cheras</option>
+                    <option value="Columbia Asia Hospital – Klang ">Columbia Asia Hospital – Klang </option>
+                    <option value="Columbia Asia Hospital - Petaling Jaya">Columbia Asia Hospital - Petaling Jaya</option>
+                    <option value="Columbia Asia Hospital – Puchong ">Columbia Asia Hospital – Puchong </option>
+                    <option value="Columbia Asia Hospital – Setapak">Columbia Asia Hospital – Setapak</option>
+                    <option value="Columbia Asia Extended Care Hospital - Shah Alam ">Columbia Asia Extended Care Hospital - Shah Alam </option>
+                    <option value="Columbia Asia Hospital – Taiping">Columbia Asia Hospital – Taiping</option>
+                    <option value="Columbia Asia Hospital – Seremban">Columbia Asia Hospital – Seremban</option>
+                    <option value="Columbia Asia Hospital - Iskandar Puteri">Columbia Asia Hospital - Iskandar Puteri</option>
+                    <option value="Columbia Asia Hospital – Tebrau">Columbia Asia Hospital – Tebrau</option>
+                    <option value="Columbia Asia Hospital – Bintulu">Columbia Asia Hospital – Bintulu</option>
+                    <option value="Columbia Asia Hospital – Miri">Columbia Asia Hospital – Miri</option>
+                    <option value="Beacon Hospital ">Beacon Hospital </option>
+                    <option value="CVS Kuala Lumpur">CVS Kuala Lumpur</option>
+                    <option value="Hospital Picaso">Hospital Picaso</option>
+                    <option value="Northern Heart Hospital">Northern Heart Hospital</option>
+                    <option value="TAGS Cheras">TAGS Cheras</option>
+                    <option value="TAGS Hartamas">TAGS Hartamas</option>
+                    <option value="TAGS Subang Jaya">TAGS Subang Jaya</option>
+                    <option value="TAGS Melaka">TAGS Melaka</option>
+                    <option value="TAGS Seremban">TAGS Seremban</option>
+                    <option value="TAGS Johor Bahru">TAGS Johor Bahru</option>
+                    <option value="TAGS Penang ">TAGS Penang </option>
+                    <option value="TAGS Kuching">TAGS Kuching</option>
+                    <option value="Rumah Sakit Columbia Asia Aksara">Rumah Sakit Columbia Asia Aksara</option>
+                    <option value="Rumah Sakit Columbia Asia Medan">Rumah Sakit Columbia Asia Medan</option>
+                    <option value="Rumah Sakit Columbia Asia BSD">Rumah Sakit Columbia Asia BSD</option>
+                    <option value="Rumah Sakit Columbia Asia Pulomas">Rumah Sakit Columbia Asia Pulomas</option>
+                    <option value="Rumah Sakit Columbia Asia Semarang">Rumah Sakit Columbia Asia Semarang</option>
+                    <option value="RS Premier Surabaya">RS Premier Surabaya</option>
+                    <option value="RS Premier Jatinegara">RS Premier Jatinegara</option>
+                    <option value="RS Premier Bintaro">RS Premier Bintaro</option>
+                    <option value="Columbia Asia Bin Duong">Columbia Asia Bin Duong</option>
+                    
+                </select>
+            </div>
+        </form>
+    </div><br><br><br>
+
+    <div class="row" id="products">
+        <!-- Cards will be dynamically generated here -->
+    </div><br><br><br>
+
+    <!-- <div class="footer">
+        <p>2024 Asia Onehealthcare,  All rights Reserved</p>
+    </div> -->
+
+    <script>
+        const hospitals = [
+            {
+                name: "Arnold Palmer Hospital for Children and Women",
+                brand:"Alty",
+                country: "USA",
+                region: "OrlandoFlorida",
+                phone: "+ 1 407 647 9111",
+                email: "healthcare@asia1health.com",
+                image: "ALTY-PHYSIO-scaled.jpg",
+                link:"https://www.google.com/maps/@9.9240401,78.122233,13z?entry=ttu"
+            },
+            {
+                name: "Bascom Palmer Anne Bates.",
+                brand:"Alty",
+                country: "USA",
+                region: "OrlandoFlorida",
+                phone: "+603 5639 1888",
+                email: "healthcare@asia1health.com",
+                image: "ALTY-PHYSIO-scaled.jpg",
+                link:"https://www.google.com/maps/@9.9240401,78.122233,13z?entry=ttu"
+            },
+            {
+                name: "Bellevue Hospital Center",
+                brand:"CMC Medical Centres",
+                country: "USA",
+                region: "OrlandoFlorida",
+                phone: "+603 5639 1888",
+                email: "healthcare@asia1health.com",
+                image: "ADMC- 06624-33_CMC Hosp Facade DI Jul24.jpg",
+                link:"https://maps.app.goo.gl/FKpoYe5bA4dHmrVw5"
+
+            },
+            {
+                name: "Boston Children's Hospital",
+                brand:"CMC Medical Centres",
+                country: "USA",
+                region: "OrlandoFlorida",
+                phone: "+603 5639 1515",
+                email: "healthcare@asia1health.com",
+                image: "bukit-jalil-hospital-footer-3-1024x754.jpg",
+                link:"https://maps.app.goo.gl/zwBqBd8gXnkecpFh9"
+
+            },
+            {
+                name: "Subang Jaya Medical Centre",
+                brand:"CMC Medical Centres",
+                country: "USA",
+                region: "OrlandoFlorida",
+                phone: "+603 5639 1212",
+                email: "healthcare@asia1health.com",
+                image: "SJMC- 06624-33_CMC Hosp Facade DI Jul24_V1.jpg",
+                link:"https://maps.app.goo.gl/knmDMSJnjjixzoXb7"
+
+            },
+            {
+                name: "Diaconessenhuis Leiden",
+                brand:"CMC Medical Centres",
+                country: "Netherland",
+                region: "Kuala Lumpur & Selangor",
+                phone: "+603 5639 1616",
+                email: "healthcare@asia1health.com",
+                image: "PMC- 06624-33_PMC building front view_V3.jpg",
+                link:"https://maps.app.goo.gl/bcKUK4wnPbNs6JrS7"
+
+            },
+            {
+                name: "Havenziekenhuis en Instituut Voor Tropische Zietken",
+                brand:"Columbia Asia",
+                country: "Netherland",
+                region: "Kuala Lumpur & Selangor",
+                phone: "+603 5639 1888",
+                email: "customercare.bukitjalil@columbiaasia.com",
+                image: "bukit-jalil-hospital-footer-3-1024x754.jpg",
+                link:"https://maps.app.goo.gl/cHf3qxHaHvU2oj6Z9"
+
+            },
+            {
+                name: "Stichting Bronovo – Nebo",
+                brand:"Columbia Asia",
+                country: "Netherland",
+                region: "Kuala Lumpur & Selangor",
+                phone: "+603 5125 9999",
+                email: "customercare.bukitrimau@columbiaasia.com",
+                image: "bukit-rimau-hospital-footer-5-1024x754.jpg",
+                link:"https://maps.app.goo.gl/AhjuUZcobDjF3eW86"
+
+            },
+            {
+                name: "TravelClinicPdeBeer",
+                brand:"Columbia Asia",
+                country: "Netherland",
+                region: "Kuala Lumpur & Selangor",
+                phone: "+603 9086 9999",
+                email: "customercare.cheras@columbiaasia.com",
+                image: "cheras-hospital-footer-2-1024x754.jpg",
+                link:"https://maps.app.goo.gl/huaE4RduTSQYEZW46"
+
+            },
+            
+        ];
+
+        function generateCards() {
+            const productsContainer = document.getElementById('products');
+            productsContainer.innerHTML = '';
+
+            hospitals.forEach(hospital => {
+                const card = `
+                    <div class="card" data-country="${hospital.country}" data-region="${hospital.region}"  data-brand="${hospital.brand}" data-hospitalName="${hospital.name}">
+
+                        <div class="image">
+                            <img src="${hospital.image}" alt="${hospital.name}" height="180" style="border-radius:24px;">
+                        </div>
+                        <div class="title mb-1 mt-1">
+                            <h4>${hospital.name +" - "+ hospital.brand}</h4>
+                        </div>
+                        <div class="country  mb-4">
+                            <p>${hospital.country}</p>
+                        </div>
+                        <div class="location mb-1 mt-2">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>${hospital.region}</p>
+                        </div>
+                        <div class="cell  mb-1">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>${hospital.phone}</p>
+                        </div>
+                        <div class="mail mb-1">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p>${hospital.email}</p>
+                        </div>
+                        <div class="buttons">
+                            <div class="direction">
+                                <p>Visit Website</p>
+                            </div>
+                            <div class="visit">
+                                <p><a href=${hospital.link} target="_blank" style="text-decoration: none;color:white;">Get Direction</a></p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productsContainer.insertAdjacentHTML('beforeend', card);
+            });
+        }
+
+        function filterHospitals() {
+            const countryFilter = document.getElementById('countryFilter').value;
+            const regionFilter = document.getElementById('regionFilter').value;
+            const hospitalFilter = document.getElementById('hospitalFilter').value;
+            const brandFilter = document.getElementById('brandFilter').value;
+
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const cardCountry = card.getAttribute('data-country');
+                const cardRegion = card.getAttribute('data-region');
+                const cardHosName = card.getAttribute('data-hospitalName');
+                const cardBrand = card.getAttribute('data-brand');
+
+                if ((countryFilter === 'All' || cardCountry === countryFilter) &&
+                    (regionFilter === 'All' || cardRegion === regionFilter)&&
+                    (hospitalFilter === 'All' || cardHosName === hospitalFilter)&&
+                    (brandFilter === 'All' || cardBrand === brandFilter)
+                
+                ) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        window.onload = generateCards; // Generate cards on page load
+    </script>
+</body>
+
+</html>
